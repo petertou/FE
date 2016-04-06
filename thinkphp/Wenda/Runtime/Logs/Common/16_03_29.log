@@ -1,0 +1,114 @@
+[ 2016-03-29T08:28:54+08:00 ] 127.0.0.1 /Wenda/Public/Index/Css/public.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000434s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:28:54+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:28:54+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:28:55+08:00 ] 127.0.0.1 /Wenda/Public/Index/Css/public.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:28:55+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:28:55+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:00+08:00 ] 127.0.0.1 /Wenda/Public/Index/Css/public.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:00+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001017s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:00+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:54+08:00 ] 127.0.0.1 /Wenda/Public/Index/Css/public1.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:54+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:29:55+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:32:18+08:00 ] 127.0.0.1 /Wenda/Public/Index/Css/public.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:32:18+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000707s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:32:18+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000209s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:35:47+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000325s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:35:47+08:00 ] 127.0.0.1 /Wenda/Public/Index/Js/public.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000233s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T08:35:47+08:00 ] 127.0.0.1 /Wenda/Public/Index/images/1_111219133417_2_03.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000237s ]
+ERR: 无法加载模块:Wenda
+
+[ 2016-03-29T11:29:40+08:00 ] 127.0.0.1 /Ask/get_cate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000218s ]
+ERR: 无法加载模块:Ask
+

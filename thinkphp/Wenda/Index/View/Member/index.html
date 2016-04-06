@@ -1,0 +1,83 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__CSS__/member.css" />
+</head>
+<body>
+	<!-- top -->
+<include file="Common:top"/>
+<!-- top结束 -->
+<!--------------------中部-------------------->
+	<div id='center'>
+<php>
+		$role = isset($_SESSION['uid']) && $_GET['id'] == session('uid')?"我":"他";
+</php>
+<!-- 左侧 -->
+<include file="Common:mleft" />
+<!-- 左侧结束 -->
+		<div id='right'>
+	
+			<p class='title'>{$role}的首页</p>
+
+			<ul class='property'>
+				<li>金币：<span>{$user['point']}</span></li>
+				<li>经验值：<span>{$user['exp']}</span></li>
+				<li>采纳率：<span>{:round($user['adopt']/$user['answer']*100,1)}%</span></li>
+			</ul>
+			<div class='list'>
+				<p><span>{$role}的提问 <b>(共{$user['ask']}条)</b></span><a href="">更多>></a></p>
+				<table>
+				<if condition="!$res">
+						<tr height='140'>
+							<td>你还没有进行过提问</td>
+						</tr>
+				<else/>
+						<tr>
+							<th class='t1'>标题</th>
+							<th>回答数</th>
+							<th class='t3'>更新时间</th>
+						</tr>
+					<foreach name="res" item="v">
+						<tr>
+							<td class='t1'>
+								<a href="{:U('Show/index',array('aid'=>$v['aid']))}">{$v.content}</a><span>[{$v.name}]</span>
+							</td>
+							<td>{$v.answer}</td>
+							<td class='t3'>{$v.atime|time_format=###}</td>
+						</tr>
+					</foreach>	
+				</if>
+				</table>
+			</div>
+			<div class='list'>
+				<p><span>{$role}的回答 <b>(共{$user['answer']}条)</b></span><a href="">更多>></a></p>
+				<table>
+				
+				<if condition="!$ant">
+					<tr height='140'>
+						<td>你还没有进行过回答</td>
+					</tr>
+				<else/>
+					<tr>
+						<th class='t1'>标题</th>
+						<th>回答</th>
+						<th class='t3'>更新时间</th>
+					</tr>
+					<foreach name="ant" item="v">
+					<tr>
+						<td class='t1'>
+							<a href="{:U('Show/index',array('aid'=>$v['aid']))}">{$v.content}</a><span>[{$v.name}]</span>
+						</td>
+						<td>{$v.answer}</td>
+						<td class='t3'>{$v.stime|time_format=###}</td>
+					</tr>
+					</foreach>
+				</if>
+				</table>
+			</div>
+		</div>
+	</div>
+<!--------------------中部结束-------------------->
+
+<!--------------------底部-------------------->
+<!-- 底部 -->
+<include file="Common:foot">
+<!-- 底部结束 -->

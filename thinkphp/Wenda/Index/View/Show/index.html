@@ -1,0 +1,118 @@
+<include file="Common:header" />
+	<link rel="stylesheet" href="__CSS__/question.css" />
+	<script type="text/javascript" src="__JS__/question.js"></script>
+</head>
+<body>
+	<!-- top -->
+<include file="Common:top" />	
+<!-- top 结束-->
+	<div id='location'>
+		<a href="">全部分类</a>&nbsp;&gt;&nbsp;
+		<location cid="$info['cid']">
+			<a href="{:U('List/index',array('id'=>$cid))}">{$name}</a>
+			<if condition="$info['cid']!=$cid">
+				&nbsp;&gt;&nbsp;
+			</if>
+		</location>	
+	</div>
+
+<!--------------------中部-------------------->
+	<div id='center-wrap'>
+		<div id='center'>
+			<div id='left'>
+				<div id='answer-info'>
+					<!-- 如果没有解决用wait -->
+					<div class='ans-state <if condition="!$info['slove']">wait</if>'></div>
+					<div class='answer'>
+						<p class='ans-title'>{$info.content}
+							<b class='point'><if condition="$info['reward'] neq 0">{$info.reward}</if></b>
+						
+						</p>
+					</div>
+					<ul>
+						<li><a href="{:U('Member/index',array('id'=>$info['cid']))}">{$info.nickname}</a></li>
+						<li><i class='level lv{$info.level}' title='Level 1'></i></li>
+						<li>{$info.atime|time_format=###}</li>
+				
+					</ul>
+					<if condition = "!$info['slove'] AND isset($_SESSION['uid']) AND $_SESSION['uid'] != $info['uid']">
+					<div class='ianswer'>
+						<form action="{:U('answer')}" method='POST'>
+							<p>我来回答</p>
+							<textarea name="content"></textarea>
+							<input type="hidden" name='aid' value='{$info.aid}'>
+							<input type="submit" value='提交回答' id='anw-sub'/>
+						</form>
+					</div>
+					</if>
+					<!-- 满意回答 -->
+					<if condition="$agree">
+					<div class='ans-right'>
+						<p class='title'><i></i>满意回答<span>{$agree.stime|time_format=###}</span></p>
+						<p class='ans-cons'>{$agree.content}</p>
+						<dl>
+							<dt>
+								<a href="{:U('Member/index',array('id'=>$agree['uid']))}"><img src="<if condition='$agree["face"]'>__ROOT__/Uploads/Face/$agree['face']<else/>__IMAGE__/noface.gif</if>" width='48' height='48'/></a>
+							</dt>
+							<dd>
+								<a href="">{$agree.nickname}</a>
+							</dd>
+							<dd><i class='level lv{$agree.exp|exp_to_level=###}'></i></dd>
+							<dd>{:floor(($agree['adopt']/$agree['answer'])*100)}%</dd>
+						</dl>
+					</div>
+					</if>
+					<!-- 满意回答 -->
+				</div>
+
+				<div id='all-answer'>
+					<div class='ans-icon'></div>
+					<p class='title'>共 <strong>{$info['answer']}</strong> 条回答</p>
+					<ul>
+					<foreach name="res" item="v">
+						<li>
+							<div class='face'>
+								<a href="{:U('Member/index',array('id'=>$agree['uid']))}">
+									<img src="<if condition='$v["face"]'>__ROOT__/Uploads/Face/{$v.face}<else/>__IMAGE__/noface.gif</if>" width='48' height='48'/>
+									{$v.nickname}
+								</a>
+							</div>
+							<div class='cons blue'>
+								<p>{$v.content}<span style='color:#888;font-size:12px'>&nbsp;&nbsp;({$v.stime|time_format=###})</span></p>
+							</div>
+							<if condition="!$info['slove']  AND  isset($_SESSION['uid']) AND $info['uid'] eq $_SESSION['uid']" >
+								<a href="{:U('adopt',array('sid'=>$v['sid'],'aid'=>$info['aid'],'uid'=>$v['uid']))}" class='adopt-btn'>采纳</a>
+							</if>
+						</li>
+					</foreach>
+					</ul>	
+					<div class='page'>
+						{$pages}
+					</div>
+				</div>
+				<div id='other-ask'>
+					<p class='title'>待解决的相关问题</p>
+					<table>
+						<foreach name="wait" item="v">
+						<tr>
+							<td class='t1'><a href="{:U('Show/index',array('aid'=>$v['aid']))}">{$v.content}</a></td>
+							<td>{$v.answer}&nbsp;回答</td>
+							<td>{$v.atime|time_format=###}</td>
+						</tr>
+						</foreach>
+					</table>
+				</div>
+			</div>
+		<!-- 右侧 -->
+	<include file="Common:right" />
+<!-- ---右侧结束---- -->
+			
+		</div>
+
+	</div>
+	
+<!--------------------中部结束-------------------->
+
+<!-- 底部 -->
+<include file="Common:foot" />
+<!-- 底部结束 -->
