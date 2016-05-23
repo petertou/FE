@@ -1,0 +1,73 @@
+<include file="Common:header"/>
+	<link rel="stylesheet" href="__CSS__/member.css" />
+	<script type="text/javascript" src='__JS__/member.js'></script>
+</head>
+<body>
+	<!-- top -->
+<include file="Common:top"/>
+<!-- top结束 -->
+<!--------------------中部-------------------->
+	<div id='center'>
+<!-- 左侧 -->
+<include file="Common:mleft"/>
+<!-- 左侧结束 -->
+		<div id='right'>
+			<p class='title'>{$role}的回答</p>
+			<ul class='ask-filter'>
+				<li class='cur'>全部回答</li>
+				<li>被采纳的回答</li>
+			</ul>
+			<div class='list list-filter'>
+				<table>
+					<if condition="!$ant">
+						<tr height='140'>
+							<td>你还没有回答过问题</td>
+						</tr>
+					<else/>
+						<tr>
+							<th class='t1'>标题</th>
+							<th>回答</th>
+							<th class='t3'>更新时间</th>
+						</tr>
+						<foreach name="ant" item="v">
+						<tr>
+							<td class='t1'>
+								<a href="{:U('Show/index',array('aid'=>$v['aid']))}">{$v.content}</a><span>[{$v.name}]</span>
+							</td>
+							<td>{$v.answer}</td>
+							<td class='t3'>{$v.stime|time_format=###}</td>
+						</tr>
+						</foreach>
+					</if>
+				</table>
+			</div>
+			<div class='list list-filter hidden'>
+				<table>
+					<if condition="!$ans">
+						<tr height='140'>
+							<td>我还没有被采纳的回答</td>
+						</tr>
+					<else/>
+					<tr>
+						<th class='t1'>标题</th>
+						<th>回答</th>
+						<th class='t3'>更新时间</th>
+					</tr>
+					<foreach name="ans" item="v">
+					<tr>
+						<td class='t1'>
+							<a href="{:U('Show/index',array('aid'=>$v['aid']))}">{$v.content}</a><span>{$v.name}</span>
+						</td>
+						<td>{$v.answer}</td>
+						<td class='t3'>{$v.stime|time_format=###}</td>
+					</tr>
+					</foreach>
+					</if>
+				</table>
+			</div>
+		</div>
+	</div>
+<!--------------------中部结束-------------------->
+<!-- 底部 -->
+<include file="Common:foot" />
+<!-- 底部结束 -->

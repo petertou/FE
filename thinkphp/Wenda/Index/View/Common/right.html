@@ -1,0 +1,131 @@
+<div id='right'>
+	<if condition="!isset($_SESSION['uid']) && !isset($_SESSION['user'])">
+	<div class='r-login'>
+		<span class='login'><i></i>&nbsp;登录</span>
+		<span class='register'><i></i>&nbsp;注册</span>
+	</div>
+	<else/>
+	<?php $uid = $_SESSION['uid'] ?>
+	<userinfo uid="$uid">
+	<div class='userinfo'>
+		<dl>
+			<dt>
+				<a href="{:U('Member/index',array('id' => $uid))}"><img src="{$face}" width='48' height='48' alt="占位符"/></a>
+			</dt>
+			<dd class='username'>
+				<a href="{:U('Member/index',array('id' => $uid))}">
+					<b>{$nickname}</b>
+				</a>
+				<a href="">
+					<i class='level lv{$level}' title='Level {$level}'></i>
+				</a>
+			</dd>
+			<dd>金币：<a href="" style="color: #888888;">{$point}<b class='point'></b></a></dd>
+			<dd>经验值：{$exp}</dd>
+		</dl>
+		<table>
+			<tr>
+				<td>回答数</td>
+				<td>采纳率</td>
+				<td class='last'>提问数</td>
+			</tr>
+			<tr>
+				<td><a href="">{$answer}</a></td>
+				<td><a href="">{$adopt}</a></td>
+				<td class='last'><a href="">{$ask}</a></td>
+			</tr>
+		</table>
+		<ul>
+			<li><a href="">我提问的</a></li>
+			<li><a href="">我回答的</a></li>
+		</ul>
+	</div>
+	</userinfo>
+	</if>
+<div class='clear'></div>
+<div class='star'>
+	<?php 
+		$times = strtotime(date('Y-m-d'));
+		$sql = "SELECT `uid`, count( * ) AS count  FROM dd_answer `answer` WHERE `answer`.`stime`>$times GROUP BY `uid`  ORDER BY count DESC LIMIT 1 ";
+		// echo $sql;die;
+		if(!$sql){
+			$result = M()->query($sql);
+			$uid = $result[0]['uid'];
+			// p($uid);die;
+			$sqls = "SELECT `face`,`nickname`,`exp`,`answer`,`adopt`FROM `dd_user` `user` WHERE `user`.`uid` = $uid";
+			// echo $sqls;die;
+			$result = M()->query($sqls);
+			$result = $result[0];
+			// p($result);die;
+		}
+		
+	?>
+	<if condition="!isset($uid)">
+	<p class='title'>后盾问答之星</p>
+	<span class='star-name'>本日回答问题最多的人</span>
+		<div class='star-info'>
+			<div>
+				<a href="{:U('Member/index',array('id'=>$uid))}" class='star-face'>
+					<img src="<if condition='$result["face"]'>__ROOT__/Uploads/Face/{$result['face']}<else/>__IMAGE__/noface.gif</if>" width='48px' height='48px' alt="头像站位"/>
+				</a>
+				<ul>
+					<li><a href="{:U('Member/index',array('id'=>$uid))}">{$result.nickname}</a></li>
+					<i class='level lv{$result.exp|exp_to_level=###}' title='Level {$result.exp|exp_to_level=###}'></i>
+				</ul>
+			</div>
+			<ul class='star-count'>
+				<li>回答数：<span>{$result.answer}</span></li>
+				<li>采纳率：<span>{:round($result['adopt']/$result['answer'])}%</span></li>
+			</ul>
+		</div>
+	</if>
+	<span class='star-name'>历史回答问题最多的人</span>
+	<?php 
+		$times = strtotime(date('Y-m-d'));
+		$sql = "SELECT `uid`, count( * ) AS count  FROM dd_answer `answer`  GROUP BY `uid`  ORDER BY count DESC LIMIT 1 ";
+		$result = M()->query($sql);
+		$uid = $result[0]['uid'];
+		// p($uid);die;
+		$sqls = "SELECT `face`,`nickname`,`exp`,`answer`,`adopt`FROM `dd_user` `user` WHERE `user`.`uid` = $uid";
+		// echo $sqls;die;
+		$result = M()->query($sqls);
+		$result = $result[0];
+		// p($result);die;
+	?>
+	<div class='star-info'>
+		<div>
+			<a href="{:U('Member/index',array('id'=>$uid))}" class='star-face'>
+				<img src="<if condition='$result["face"]'>__ROOT__/Upload/Face/{$result['face']}<else/>__IMAGE__/noface.gif</if>" width='48px' height='48px' alt="头像站位"/>
+			</a>
+			<ul>
+				<li><a href="{:U('Member/index',array('id'=>$uid))}">{$result.nickname}</a></li>
+				<i class='level lv{$result.exp|exp_to_level=###}' title='Level {$result.exp|exp_to_level=###}'></i>
+			</ul>
+		</div>
+		<ul class='star-count'>
+			<li>回答数：<span>{$result.answer}</span></li>
+			<li>采纳率：<span>{:round($result['adopt']/$result['answer']*100,1)}%</span></li>
+		</ul>
+	</div>
+</div>
+<div class='star-list'>
+	<p class='title'>后盾问答助人光荣榜</p>
+	<?php
+		$sql = "SELECT `nickname`,`exp`,`answer`,`uid`FROM `dd_user` GROUP BY `nickname` ORDER BY `answer` DESC LIMIT 3";
+		$result = M()->query($sql);	?>
+	<div>
+		<ul class='ul-title'>
+			<li>用户名</li>
+			<li style='text-align:right;'>帮助过的人数</li>
+		</ul>
+		<ul class='ul-list'>
+		<foreach name="result" key="k" item="v">
+			<li>
+				<a href="{:U('Member/index',array('id'=>$v['uid']))}"><i class='rank r{$k+1}'></i>{$v.nickname}</a>
+				<span>{$v.answer}</span>
+			</li>
+		</foreach>				
+		</ul>
+	</div>
+</div>
+</div>
